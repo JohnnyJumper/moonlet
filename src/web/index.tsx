@@ -6,6 +6,7 @@ import { DeviceScreenSize, Platform } from '../app/types';
 import { getScreenSizeMatchMedia } from '../app/utils/screen-size-match-media';
 import { Blockchain } from 'moonlet-core/src/core/blockchain';
 import { createWallet } from '../app/utils/wallet';
+import { createWalletLoaded } from '../app/data/wallet/actions';
 
 const store = getStore({
     pageConfig: {
@@ -33,10 +34,13 @@ import networksEth from 'moonlet-core/src/blockchain/ethereum/networks';
 networksEth[0] = networksEth[2];
 import networksZil from 'moonlet-core/src/blockchain/zilliqa/networks';
 networksZil[0] = networksZil[1];
-networksZil[0].url = 'https://scillagas-api.aws.zilliqa.com';
+networksZil[0].url = 'https://scilla-test-api.aws.z7a.xyz';
 // networksZil[0].url = 'http://localhost:4200';
 
-// createWallet("kid patch sample either echo supreme hungry ketchup hero away ice alcohol");
+// (async() => {
+//     await createWallet("kid patch sample either echo supreme hungry ketchup hero away ice alcohol");
+//     store.dispatch(createWalletLoaded(false, true, false));
+// })();
 
 export default props => (
     <Provider store={store}>

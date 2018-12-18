@@ -51,6 +51,6 @@ function send(to, amount): Promise<string> {
     });
 }
 
-window.moonlet = {
+(window as any).moonlet = {
     send
 };

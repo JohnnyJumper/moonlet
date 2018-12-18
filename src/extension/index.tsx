@@ -39,10 +39,11 @@ store.dispatch(createLoadWallet() as any);
 
 // set testnets
 import networksEth from 'moonlet-core/src/blockchain/ethereum/networks';
-networksEth[0] = networksEth[2];
+networksEth[0] = networksEth[1];
 import networksZil from 'moonlet-core/src/blockchain/zilliqa/networks';
 networksZil[0] = networksZil[1];
 networksZil[0].url = 'https://testnetv3a-api.aws.zilliqa.com';
+
 // networksZil[0].url = 'http://localhost:4200';
 // chrome-extension://nogdgfngiogpmhaakemlfefmepailkfm/index.html?to=0x6a6e10812fae135506fb1a3212C1BB9F8fA6bDD3&amount=1.123#/confirmation
 // createWallet("kid patch sample either echo supreme hungry ketchup hero away ice alcohol");

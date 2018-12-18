@@ -155,6 +155,7 @@ export class ConfirmationPage extends Component<IProps, IState> {
             type: 'MOONLET_SEND_RESPONSE',
             result: 'REJECT'
         });
+        console.log('REJECT response sent...');
 
         window.close();
     }
@@ -188,6 +189,7 @@ export class ConfirmationPage extends Component<IProps, IState> {
                     transactionId: response.txn
                 }
             });
+            console.log('CONFIRM response sent...');
         } catch (e) {
             await browser.runtime.sendMessage({
                 id: this.state.id,
@@ -197,10 +199,15 @@ export class ConfirmationPage extends Component<IProps, IState> {
                     message: e.toString()
                 }
             });
+            console.log('ERROR response sent...');
         } finally {
             const password = await getPassword();
             await storeWallet(password);
-            window.close();
+
+            setTimeout(() => {
+                console.log('closing...');
+                window.close();
+            }, 100);
         }
     }
 }
